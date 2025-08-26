@@ -1,0 +1,12 @@
+version: "3.9"
+services:
+  app:
+    build: .
+    ports:
+      - "3001:3000"
+    environment:
+      - PORT=3000
+      - DB_FILE=/data/app.sqlite
+    volumes:
+      - ./data:/data
+    restart: unless-stopped
