@@ -1,6 +1,7 @@
 import Database from 'better-sqlite3'
 
-export const db = new Database('/workspace/db/app.sqlite')
+const dbFile = process.env.DB_FILE || '/workspace/db/app.sqlite'
+export const db = new Database(dbFile)
 
 db.pragma('journal_mode = WAL')
 db.pragma('foreign_keys = ON')
